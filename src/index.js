@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './index.css';
-import App from './App';
+import RouterApp from './Components/Root/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+        <MuiThemeProvider muiTheme={getMuiTheme()}>
+          <RouterApp />
+        </MuiThemeProvider>
+  </Provider>,
   document.getElementById('root')
 );
 
